@@ -1,4 +1,21 @@
 .App {
   text-align: center;
-  font-size: 20px;
+  font-size: 30px;
+  background: black;
+}
+
+.FirstComponent{
+  color: yellowgreen;
+}
+
+.SecondComponent{
+  color:navajowhite;
+}
+
+.ThirdComponent{
+  color:blueviolet;
+}
+
+.FourthComponent{
+  color: tomato;
 }
