@@ -16,12 +16,18 @@ export default function Counter() {
         setCount(totalCount - by)
     }
 
+    function resetTotalCounter() {
+        setCount(0)
+    }
+
     return (
         <>
             <span className="totalCount">{totalCount}</span>
             <CounterButton incrementTotal={incrementTotalCounter} decrementTotal={ decrementTotalCounter} />
             <CounterButton by={2} incrementTotal={incrementTotalCounter} decrementTotal={ decrementTotalCounter} />
-            <CounterButton by={6} incrementTotal={incrementTotalCounter} decrementTotal={ decrementTotalCounter} />
+            <CounterButton by={6} incrementTotal={incrementTotalCounter} decrementTotal={decrementTotalCounter} />
+            
+            <button className='resetButton' onClick={resetTotalCounter}>Reset</button>
         </>
     )
 

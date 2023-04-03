@@ -1,14 +1,3 @@
-.counterButton {
-    font-size: 16px;
-    background-color: #00a5ab;
-    width: 100px;
-    margin: 10px;
-    color: white;
-    padding: 15px;
-    border-radius: 30px;
-    border-color: black;
-    border-width: 5px;
-}
 
 .count {
     font-size: 50px;
@@ -18,4 +7,23 @@
 .totalCount {
     color: #00a5ab;
     font-size: 100px;
+}
+
+button {
+    font-size: 16px;
+    width: 100px;
+    margin: 10px;
+    color: white;
+    padding: 15px;
+    border-radius: 30px;
+    border-color: black;
+    border-width: 5px;
+}
+
+.counterButton {
+    background-color: #00a5ab;
+}
+.resetButton{
+    background-color: #013537;
+    
 }
