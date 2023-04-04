@@ -14,6 +14,8 @@ function LoginComponent() {
 
     const [username, setUsername] = useState('gaspar')
     const [password, setPassword] = useState('')
+    const [loginSuccess, setLoginSuccess] = useState(false)
+    const [loginFailed, setLoginFailed] = useState(false)
 
     function handleUsernameChange(event) {
         setUsername(event.target.value)
@@ -23,6 +25,15 @@ function LoginComponent() {
         setPassword(event.target.value)
     }
 
+    function handleSubmit() {
+        if (username === 'gaspar' && password === 'dev23') {
+            setLoginSuccess(true)
+            setLoginFailed(false)
+        } else {
+            setLoginSuccess(false)
+            setLoginFailed(true)
+        }
+    }
 
     return (
         <div className="Login">
@@ -36,10 +47,13 @@ function LoginComponent() {
                     <input type="password" name="password" value={password} onChange={handlePasswordChange} />
                 </div>
                 <div>
-                    <button type="button"name="login">Login</button>
+                    <button type="button"name="login" onClick={handleSubmit}>Login</button>
                     
                 </div>
             </div>
+            {loginSuccess &&  <div className='successMessage'>Authenticated Successfully</div>}
+            {loginFailed && <div className='errorMessage'>Authenticated Failed. Check the credentials.</div>}
+            
         </div>
     )
 }
