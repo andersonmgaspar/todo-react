@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter, Route, Routes, useNavigate} from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useNavigate, useParams, Link} from 'react-router-dom'
 import './TodoApp.css'
 
 
@@ -8,10 +8,14 @@ export default function TodoApp() {
         <div className="TodoApp">
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<LoginComponent/>}></Route>
-                    <Route path='/login' element={<LoginComponent/>}></Route>
-                    <Route path='/welcome' element={<WelcomeComponent />}></Route>
-                    <Route path='*' element={<ErrorComponent/>}></Route>
+                    <Route path='/' element={<LoginComponent/>} />
+                    <Route path='/login' element={<LoginComponent/>}/>
+                    <Route path='/welcome/:username' element={<WelcomeComponent />}/>
+                    <Route path='/todos' element={<ListTodosComponent />} />
+                    
+                    <Route path='*' element={<ErrorComponent />}/>
+                    
+                    
                 </Routes>
             </BrowserRouter>
         </div>
@@ -38,7 +42,7 @@ function LoginComponent() {
         if (username === 'gaspar' && password === 'dev23') {
             setLoginSuccess(true)
             setLoginFailed(false)
-            navigate('/welcome')
+            navigate(`/welcome/${username}`)
         } else {
             setLoginSuccess(false)
             setLoginFailed(true)
@@ -70,11 +74,15 @@ function LoginComponent() {
 }
 
 function WelcomeComponent() {
+    const {username} = useParams()
+
     return (
-        <div>
-            <h1>Welcome to ToDoDoo!</h1>
-            <div className="Welcome">
+        <div className="Welcome">
+            <h1>Welcome {username}!</h1>
+            <div >
                 Improve Yourself, Study and Make stuffs.
+                <br/>
+                <Link to='/todos'>Continue your effort</Link>
             </div>
         </div>
     )
@@ -84,7 +92,50 @@ function ErrorComponent() {
     return (
         <div className="Error">
             <h1>We are under development!</h1>
-            <div>This is a 404 Page.</div>
+            <div>This is a 404 Page. We need tododoo more.</div>
+        </div>
+    )
+}
+
+function ListTodosComponent() {
+
+    const today = new Date()
+    const targetDate = new Date(today.getFullYear()+1, today.getMonth(), today.getDay())
+    const todos = [
+                    { id: 1, description: 'Learn AWS', done:false, targetDate: targetDate },
+                    { id: 2, description: 'Learn Spring Microservices', done:false, targetDate: targetDate },
+                    { id: 3, description: 'Learn React.js',done:false, targetDate: targetDate }
+                  ]
+    return (
+        <div className="ListTodos">
+            <h1>Things you WANNA do!</h1>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Id</td>
+                            <td>Description</td>
+                            <td>is Done?</td>
+                            <td>Target Date</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {todos.map(
+                                todo => (
+                                    <tr key={todo.id}>
+                                        <td>{todo.id}</td>
+                                        <td>{todo.description}</td>
+                                        <td>{todo.done.toString()}</td>
+                                        <td>{todo.targetDate.toDateString()}</td>
+                                    </tr>
+                                )
+                            )
+                        }
+                        
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     )
 }
