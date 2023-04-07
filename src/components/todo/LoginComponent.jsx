@@ -30,23 +30,23 @@ function LoginComponent() {
     }
 
     return (
-        <div className="Login">
-            <h1>ToDoDoo</h1>
-            {loginFailed && <div className='errorMessage'>Authenticated Failed. Check the credentials.</div>}
-            <div className="LoginForm">
-                <div>
-                    <label>User Name</label>
-                    <input type="text" name="username" value={username} onChange={handleUsernameChange} />
+        <div className="container min-vh-100 d-flex justify-content-center align-itens-center">
+            <form>
+                <h1>ToDoDoo</h1>
+                {loginFailed && <div className='p-1 alert alert-warning'>Authenticated Failed. <br/>Check the credentials.</div>}
+                <div className="mb-3">
+                    <label className="form-label">User Name</label>
+                    <input type="text" name="username" className="form-control" value={username} onChange={handleUsernameChange} />
+                </div>
+                <div className="mb-3">
+                    <label className="form-label">Password</label>
+                    <input type="password" name="password" className="form-control" value={password} onChange={handlePasswordChange} />
                 </div>
                 <div>
-                    <label>Password</label>
-                    <input type="password" name="password" value={password} onChange={handlePasswordChange} />
-                </div>
-                <div>
-                    <button type="button"name="login" onClick={handleSubmit}>Login</button>
+                    <button type="button" name="login" className="btn btn-primary" onClick={handleSubmit}>Login</button>
                     
                 </div>
-            </div>
+            </form>
             
         </div>
     )

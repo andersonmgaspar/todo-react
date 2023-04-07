@@ -12,7 +12,7 @@ import { useAuth } from './security/AuthContext'
 
 function AuthenticatedRoute({children}) {
     const authContext = useAuth()
-    if (useAuth.isAuth)
+    if (authContext.isAuth)
         return children
     return <Navigate to="/"/>
 }
