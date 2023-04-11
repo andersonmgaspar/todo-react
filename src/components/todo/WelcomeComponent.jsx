@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom"
 import { useState } from "react"
 
-import { retrieveHelloWorld } from "./api/HelloWorldApiService";
+import { retrieveHelloWorldBeanParameter } from "./api/HelloWorldApiService";
 
 function WelcomeComponent() {
 
@@ -11,8 +11,8 @@ function WelcomeComponent() {
 
     function callHelloWorldAPI() {
         console.log('hello world btn click')
-
-        retrieveHelloWorld()
+        
+        retrieveHelloWorldBeanParameter(username)
             .then((response) => successfullResponse(response))
             .catch((error) => errorResponse(error))
             .finally(() => console.log('cleanup'))
@@ -20,11 +20,12 @@ function WelcomeComponent() {
 
     function successfullResponse(response) {
         console.log(response)
-        setMessage(response.data)
+        setMessage(response.data.message)
     }
 
     function errorResponse(error) {
         console.log(error)
+        setMessage("Falha no servidor. Tente novamente mais tarde.")
     }
 
 

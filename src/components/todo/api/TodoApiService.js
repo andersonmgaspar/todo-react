@@ -10,20 +10,8 @@ function getBufferedToken() {
   return encodedToken;
 }
 
-export function retrieveHelloWorldBean() {
-  var session_url = 'http://localhost:8080/hello-bean';
-  const encodedToken = getBufferedToken();
-  var config = {
-    method: 'get',
-    url: session_url,
-    headers: { Authorization: 'Basic ' + encodedToken },
-  };
-
-  return axios(config);
-}
-
-export function retrieveHelloWorldBeanParameter(username) {
-  var session_url = `http://localhost:8080/hello-bean/${username}`;
+export function retrieveAllTodosForUsername(username) {
+  var session_url = `http://localhost:8080/users/${username}/todos`;
   const encodedToken = getBufferedToken();
   var config = {
     method: 'get',
