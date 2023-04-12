@@ -54,9 +54,9 @@ function ListTodosComponent() {
     return (
         <div className="container">
             <h1>Things you WANNA do!</h1>
-            { message && <div className="alert alert-warning"> {message} </div> }
             
             <div>
+                { message && <div className="alert alert-warning"> {message} </div> }
                 <table className='table'>
                     <thead>
                         <tr>

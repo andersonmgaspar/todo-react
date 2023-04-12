@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { useAuth } from "./security/AuthContext"
 function LoginComponent() {
 
-    const [username, setUsername] = useState('gaspar')
+    const [username, setUsername] = useState('andi')
     
     const [password, setPassword] = useState('')
     
