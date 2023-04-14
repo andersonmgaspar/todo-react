@@ -1,10 +1,12 @@
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getTodoApi } from './api/TodoApiService';
 import { useAuth } from './security/AuthContext';
 
 export default function TodoComponent() {
   const { id } = useParams();
+
+  const [description, setDescription] = useState('');
 
   const authContext = useAuth();
   const { username } = authContext;
@@ -12,7 +14,7 @@ export default function TodoComponent() {
   function retrieveTodo() {
     getTodoApi(username, id)
       .then((response) => {
-        console.log(response);
+        setDescription(response.data.description);
       })
       .catch((error) => console.log(error));
   }
@@ -22,7 +24,17 @@ export default function TodoComponent() {
   return (
     <div className="container">
       <h1>Enter Todo Details</h1>
-      <div />
+      <div>
+        <label className="form-label" htmlFor="description">
+          Description
+          <input
+            type="text"
+            name="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </label>
+      </div>
     </div>
   );
 }
