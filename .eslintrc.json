@@ -1,32 +1,36 @@
 {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es2021": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb",
-        "plugin:react/jsx-runtime"
-    ],
-    "overrides": [
-        {
-      "files": [
-        "**/*.spec.js",
-        "**/*.spec.jsx"
-      ],
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "airbnb",
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:prettier/recommended"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.spec.js", "**/*.spec.jsx"],
       "env": {
         "jest": true
       }
     }
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
-    }
+    "ecmaVersion": "latest"
+  },
+  "plugins": ["react", "import", "prettier"],
+  "rules": {
+    "quotes": ["error", "double"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "jsx-a11y/label-has-associated-control": ["off"]
+  }
 }

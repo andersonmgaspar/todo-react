@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from "react";
 
 export const AuthContext = createContext();
 
@@ -13,7 +13,7 @@ export default function AuthProvider({ children }) {
 
   // eslint-disable-next-line no-shadow
   function login(username, password) {
-    if (username === 'andi' && password === 'dev23') {
+    if (username === "andi" && password === "dev23") {
       setAuth(true);
       setUsername(username);
       return true;
@@ -28,9 +28,13 @@ export default function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{
-      isAuth, login, logout, username,
-    }}
+    <AuthContext.Provider
+      value={{
+        isAuth,
+        login,
+        logout,
+        username,
+      }}
     >
       {children}
     </AuthContext.Provider>
