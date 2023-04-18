@@ -4,18 +4,18 @@
   background: rgb(171, 224, 214);
 }
 
-.FirstComponent{
+.FirstComponent {
   color: yellowgreen;
 }
 
-.SecondComponent{
-  color:navajowhite;
+.SecondComponent {
+  color: navajowhite;
 }
 
-.ThirdComponent{
-  color:blueviolet;
+.ThirdComponent {
+  color: blueviolet;
 }
 
-.FourthComponent{
+.FourthComponent {
   color: tomato;
 }

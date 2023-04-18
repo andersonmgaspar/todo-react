@@ -45,20 +45,12 @@ export default function TodoComponent() {
               <Form>
                 <fieldset className="form-group">
                   <label htmlFor="description">Description</label>
-                  <Field
-                    type="text"
-                    className="form-control"
-                    name="description"
-                  />
+                  <Field type="text" className="form-control" name="description" />
                 </fieldset>
 
                 <fieldset className="form-group">
                   <label>Target Date</label>
-                  <Field
-                    type="date"
-                    className="form-control"
-                    name="targetDate"
-                  />
+                  <Field type="date" className="form-control" name="targetDate" />
                 </fieldset>
                 <div>
                   <button type="submit" className="btn btn-primary m-5">

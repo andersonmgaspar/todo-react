@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from './security/AuthContext';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "./security/AuthContext";
 
 function LoginComponent() {
-  const [username, setUsername] = useState('andi');
+  const [username, setUsername] = useState("andi");
 
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState("");
 
   const [loginFailed, setLoginFailed] = useState(false);
 
@@ -34,32 +34,41 @@ function LoginComponent() {
       <form>
         <h1>ToDoDoo</h1>
         {loginFailed && (
-        <div className="p-1 alert alert-warning">
-          Authenticated Failed.
-          {' '}
-          <br />
-          Check the credentials.
-        </div>
+          <div className="p-1 alert alert-warning">
+            Authenticated Failed. <br />
+            Check the credentials.
+          </div>
         )}
         <div className="mb-3">
           <label className="form-label" htmlFor="username">
             User Name
-            <input type="text" name="username" className="form-control" value={username} onChange={handleUsernameChange} />
-
+            <input
+              type="text"
+              name="username"
+              className="form-control"
+              value={username}
+              onChange={handleUsernameChange}
+            />
           </label>
         </div>
         <div className="mb-3">
           <label className="form-label" htmlFor="password">
             Password
-            <input type="password" name="password" className="form-control" value={password} onChange={handlePasswordChange} />
+            <input
+              type="password"
+              name="password"
+              className="form-control"
+              value={password}
+              onChange={handlePasswordChange}
+            />
           </label>
         </div>
         <div>
-          <button type="button" name="login" className="btn btn-primary" onClick={handleSubmit}>Login</button>
-
+          <button type="button" name="login" className="btn btn-primary" onClick={handleSubmit}>
+            Login
+          </button>
         </div>
       </form>
-
     </div>
   );
 }
