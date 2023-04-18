@@ -35,7 +35,8 @@ function LoginComponent() {
         <h1>ToDoDoo</h1>
         {loginFailed && (
           <div className="p-1 alert alert-warning">
-            Authenticated Failed. <br />
+            Authenticated Failed.
+            <br />
             Check the credentials.
           </div>
         )}
